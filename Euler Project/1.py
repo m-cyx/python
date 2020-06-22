@@ -4,7 +4,7 @@
 def krat():
     N = int(input("Введите верхнюю границу: "))
     sum = 0
-    for i in range(0, N):
+    for i in range(N):
         if (i % 3 == 0) or (i % 5 == 0):
             sum+=i
     print("Ответ: " + str(sum))
