@@ -10,3 +10,5 @@ def krat():
     print("Ответ: " + str(sum))
     
 krat()
+
+print()
