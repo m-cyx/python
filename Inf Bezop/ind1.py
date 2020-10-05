@@ -1,12 +1,14 @@
-# Вариант - 1
-# Дан файл со словами с циклическим сдвигом - 3.
-# КООРДИНАТА, шифр – РДИНАТАКОО. Написать функцию decode, которая восстанавливает зашифрованное слово.
-
+"""
+ Вариант - 1
+ Дан файл со словами с циклическим сдвигом - 3.
+ КООРДИНАТА, шифр – РДИНАТАКОО. Написать функцию decode, которая восстанавливает зашифрованное слово.
+"""
 import io #библиотека для кодировки файла
 import nltk
 from nltk import word_tokenize
 
-# Функция для декода (сдвиг по заданию -3)
+# Функция для декода (сдвиг по заданию -3), получает список и шаг сдвига, возвращает лист со сдвигом
+# -3 Зашиврофать, 3 Расшифровать
 def decode (lst, steps):
     if steps < 0:
         steps = abs(steps)
@@ -18,20 +20,17 @@ def decode (lst, steps):
     return lst
 
 f = io.open('input.txt', encoding='utf-8')
-text1 = f.read()
-text = list(f.read())
-words = word_tokenize(text1)
+text = f.read()
+words = word_tokenize(text)
+def read_and_write_to_file (lst):
+    dtext = decode(lst, -3) #это шифрованный лист - результат работы decode 
+    dtextstr = ''.join(dtext) # '' - разделитель между элементами списка соответственно 
+    f1 = io.open('output.txt', 'a', encoding='utf-8')
+    f1.write(dtextstr + ' ')
+    f1.close
 
-
-print(text)
-decodedtext = decode(text,-3)
-print(decodedtext)
-decodedtextstring = ''.join(decodedtext) # '' - разделитель между элементами списка соответственно
-print(decodedtextstring)
-
-f = io.open('output.txt', 'w', encoding='utf-8')
-f.write(decodedtextstring)
+# Прохожу по всем словам из списка слов. Получил слово - преобразовал в список, отдал функции
 for i in words:
-    f.write(decode(i,-3))
+    read_and_write_to_file(list(i))
 
-f.close
+f.close()
