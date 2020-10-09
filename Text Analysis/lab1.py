@@ -33,5 +33,5 @@ for i in words:
 
 f.write('\n' + 'Множество слов без стоп слов:' + '\n')
 f.write(str(set(nostop)))
-
+# Закрываю файл
 f.close
