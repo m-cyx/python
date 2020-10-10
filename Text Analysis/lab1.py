@@ -14,6 +14,10 @@ sentences = nltk.sent_tokenize(text)
 words = word_tokenize(text)
 stop_words = set(stopwords.words("russian"))
 
+# Вывожу список стоп слов
+print('Список стоп слов: ' + '\n')
+print(stopwords.words('russian')) 
+
 # Запись в файл построчно предложения
 f = io.open('result.txt', 'w', encoding='utf-8')
 f.write('Токенизация по предложениям:' + '\n\n')
