@@ -28,6 +28,8 @@ f = io.open('result.txt', 'a', encoding='utf-8')
 
 f.write( '\n' + 'Токенизация слов:' + '\n')
 f.write(str(words) + '\n')
+f.write( '\n' + 'Кол-во слов:' + '\n')
+f.write(str(len(words)) + '\n')
 nostop = []
 # Иду по словам, если слово не в стоп листе, то добавляю к списку слов
 for i in words:
@@ -37,5 +39,7 @@ for i in words:
 
 f.write('\n' + 'Множество слов без стоп слов:' + '\n')
 f.write(str(set(nostop)))
+f.write('\n\n' + 'Кол-во слов без стоп слов:' + '\n')
+f.write(str(len(set(nostop))))
 # Закрываю файл
 f.close
