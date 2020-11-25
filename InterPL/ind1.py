@@ -13,7 +13,7 @@ def get_word():
     symbols = list()
     # прохожу по списку чисел, вставляю в список символов 16ричные числа (без 0x)
     for num in nums:
-        symbols.append((hex(num)[2:len(hex(num))]))
+        symbols.append((hex(num)[2:len(hex(num))])) #длина 16ричного - 2 префиксных
     # возвращаю список 16ричных цифр
     return ''.join(symbols)
 
