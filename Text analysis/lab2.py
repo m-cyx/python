@@ -1,3 +1,35 @@
-from pymorphy2 import MorphAnalyzer
-morph = MorphAnalyzer()
-print(morph.parse('лук')) #                                                                                                                                          [Parse(word='стали', tag=OpencorporaTag('VERB,perf,intr plur,past,indc'), normal_form='стать', score=0.984662, methods_stack=((<DictionaryAnalyzer>, 'стали', 904, 4),)), Parse(word='стали', tag=OpencorporaTag('NOUN,inan,femn sing,gent'), normal_form='сталь', score=0.003067, methods_stack=((<DictionaryAnalyzer>, 'стали', 13, 1),)), Parse(word='стали', tag=OpencorporaTag('NOUN,inan,femn sing,datv'), normal_form='сталь', score=0.003067, methods_stack=((<DictionaryAnalyzer>, 'стали', 13, 2),)), Parse(word='стали', tag=OpencorporaTag('NOUN,inan,femn sing,loct'), normal_form='сталь', score=0.003067, methods_stack=((<DictionaryAnalyzer>, 'стали', 13, 5),)), Parse(word='стали', tag=OpencorporaTag('NOUN,inan,femn plur,nomn'), normal_form='сталь', score=0.003067, methods_stack=((<DictionaryAnalyzer>, 'стали', 13, 6),)), Parse(word='стали', tag=OpencorporaTag('NOUN,inan,femn plur,accs'), normal_form='сталь', score=0.003067, methods_stack=((<DictionaryAnalyzer>, 'стали', 13, 9),))]
+import io
+import nltk 
+from nltk.corpus import stopwords 
+from pymorphy2 import MorphAnalyzer 
+
+# Морфологический анализатор 
+morph = MorphAnalyzer() 
+
+
+# Считывание текста 
+with open('text1.txt', 'r') as read_file: 
+    text = read_file.readlines() 
+text = '\n'.join(text) 
+
+# Открытие файла на чтение
+f = io.open('text1.txt', encoding='utf-8')
+text = f.read()
+
+
+
+# Удаление из текста стоп-слов # 
+stop_words = set(stopwords.words('russian'))  # Стоп-слова 
+words = nltk.word_tokenize(text)  # Токенизация текста 
+without_stop_words = set([word for word in words if word not in stop_words and word.isalnum()]) 
+
+# Морфологический разбор каждого слова # 
+result = [] 
+for word in without_stop_words: 
+    p = morph.parse(word)[0] 
+    result.append("Слово: " + word + "\nНормальная форма: " + str( 
+        p.normal_form) + "\nМорфологический разбор слова: " + p.tag.cyr_repr + '\n\n') 
+ 
+# Запись в файл # 
+with open('morf_analyze.txt', 'w') as write_file: 
+    write_file.write(''.join(result)) 
