@@ -6,7 +6,7 @@ from nltk import download
 from nltk.corpus import stopwords
 
 # Открытие файла на чтение
-f = io.open('text1.txt', encoding='utf-8')
+f = io.open('dataset.txt', encoding='utf-8')
 text = f.read()
 
 # Получаю список предложений и список слов, стоп слов
@@ -30,8 +30,9 @@ f.write( '\n' + 'Токенизация слов:' + '\n')
 f.write(str(words) + '\n')
 f.write( '\n' + 'Кол-во слов:' + '\n')
 f.write(str(len(words)) + '\n')
-nostop = []
+
 # Иду по словам, если слово не в стоп листе, то добавляю к списку слов
+nostop = []
 for i in words:
     if i not in stop_words:
         nostop.append(i)

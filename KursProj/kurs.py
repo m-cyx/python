@@ -63,4 +63,4 @@ for el in nostop:
 
 for key in colorbook:
     if key in normalnostop:
-        print(key)
+        print(key + '->' + colorbook[key])
