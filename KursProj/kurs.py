@@ -33,7 +33,7 @@ f.close()
 # в этой части беру текст, отчищаю от стоп слов и привожу в начальную форму. На выходе должен быть список слов.
 
 # Открытие файла на чтение
-f = io.open('text.txt', encoding='utf-8')
+f = io.open('text2.txt', encoding='utf-8')
 text = f.read()
 
 # получение списка слов и стоп слов
@@ -64,3 +64,8 @@ for el in nostop:
 for key in colorbook:
     if key in normalnostop:
         print(key + '->' + colorbook[key])
+
+'''
+можно выводить результат в html с цветами
+или в tkinter
+'''
