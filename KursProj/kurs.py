@@ -75,7 +75,7 @@ allcolors = []
 for key in normalnostop:
     if key in colorbook:
         print(key + '   ->  ' + colorbook[key])
-        allcolors.append(key + '   ->  ' + colorbook[key]))
+        allcolors.append(key + '   ->  ' + colorbook[key])
 
 '''
 можно выводить результат в html с цветами
