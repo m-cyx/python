@@ -7,13 +7,18 @@ from nltk.corpus import stopwords
 import pymorphy2
 morph = pymorphy2.MorphAnalyzer()
 
+
 # Открытие файла на чтение
 f = io.open('colors.txt', encoding='utf-8')
 text = f.readlines()
+
+# Инициализация переменных
 colorcode = [] # код цвета
 colorname = [] # название цвета        возможно стоит тоже в начлаьную форму привести, чтобы проще искать 
 colorbook = {} # код : название
 normalcolorname = [] # название цвета в нормальной форме
+
+# Создание словаря цветов из файла colors
 for line in text:
     if '#' in line:
         colorcode.append(line.lower())
@@ -27,7 +32,7 @@ for el in colorname:
     p = morph.parse(el)[0] 
     normalcolorname.append(str(p.normal_form))
 colorbook = dict(zip(normalcolorname, colorcode))
-print(colorbook)
+#print(colorbook)
 f.close()
 #################################################################################################
 # в этой части беру текст, отчищаю от стоп слов и привожу в начальную форму. На выходе должен быть список слов.
@@ -65,7 +70,17 @@ for key in colorbook:
     if key in normalnostop:
         print(key + '->' + colorbook[key])
 
+print('*************************** ПОЛНЫЙ СПИСОК ВСЕХ ЦВЕТОВ *********************')
+allcolors = []
+for key in normalnostop:
+    if key in colorbook:
+        print(key + '   ->  ' + colorbook[key])
+        allcolors.append(key + '   ->  ' + colorbook[key]))
+
 '''
 можно выводить результат в html с цветами
 или в tkinter
+'''
+'''
+попробовать посчитать частоту каждого цвета 
 '''
