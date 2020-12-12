@@ -8,4 +8,4 @@ for i in range(n):
     d_list.append(s)
 
 print(dict)
-print(d_list)
+print(d_list) # пары столица - государство, их надо сортировать по государству

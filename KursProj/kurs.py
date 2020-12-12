@@ -5,6 +5,7 @@ from nltk import word_tokenize
 from nltk import download
 from nltk.corpus import stopwords
 import pymorphy2
+from collections import Counter
 morph = pymorphy2.MorphAnalyzer()
 
 
@@ -13,10 +14,9 @@ f = io.open('colors.txt', encoding='utf-8')
 text = f.readlines()
 
 # Инициализация переменных
-colorcode = [] # код цвета
-colorname = [] # название цвета        возможно стоит тоже в начлаьную форму привести, чтобы проще искать 
-colorbook = {} # код : название
-normalcolorname = [] # название цвета в нормальной форме
+colorcode = []          # код цвета
+colorname = []          # название цвета
+normalcolorname = []    # название цвета в нормальной форме
 
 # Создание словаря цветов из файла colors
 for line in text:
@@ -65,33 +65,46 @@ nostop = [item for item in nostop if item not in punctuation]
 import pymorphy2
 morph = pymorphy2.MorphAnalyzer()
 
-# Привожу 
+# Привожу слова из списка без стоп слов в нормальную форму
 normalnostop = []
 for el in nostop:
     p = morph.parse(el)[0] 
     normalnostop.append(str(p.normal_form))
 #print(normalnostop)
 
+'''
+# Для каждого ключа в словаре цветов ищу совпадения в списке подготовленных слов.
+# Эта функция показывает какие цвета есть в тексте без учёта их кол-ва.
 for key in colorbook:
     if key in normalnostop:
         print(key + '->' + colorbook[key])
+'''
 
-print('*************************** ПОЛНЫЙ СПИСОК ВСЕХ ЦВЕТОВ *********************')
+# Собираю список для вывода
+print(' Полный список всех цветов')
+allcolors = [] # Список строк для вывода. Цвет + код цвета
+allcolors2 = [] # Список цветов без кодов
+for key in normalnostop: 
+    if key in colorbook:        #если название цвета есть в мешке слов
+        allcolors.append(key + '    ->    ' + colorbook[key] + ' ')
+        allcolors2.append(key)
 
-allcolors = []
-for key in normalnostop:
-    if key in colorbook:
-        #print(key + '   ->  ' + colorbook[key])
-        allcolors.append(key + '\n->  ' + colorbook[key] + '\n')
 
 
-
-from collections import Counter
-
-c = Counter(allcolors)
-
+c = Counter(allcolors) # словарь кол-во : эл. списка
+c2 = Counter(allcolors2) # словарь где ключ - кол-во, а значение - цвет
+# Вывод
 for key in c:
-    print(key + '       Кол-во: ' + str(c[key]) + '\n')
+    print(key + 'Кол-во: ' + str(c[key]))
+
+print('\n\n Альтернатива: ')
+for key in c2:
+    print(key + ' -> ' + str(c2[key]))
+
+# чтобы вывести словарь в порядке убывания ключей, скопирую словрь и буду проходить по нему, искать наибольший ключ, печатать его и выкидывать
+# или преобразовать словарь в список, сортировать и выводить парами 
+
+# с помощю cgi попробовать напечатать цветной текст
 
 '''
 можно выводить результат в html с цветами
