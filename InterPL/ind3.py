@@ -8,3 +8,4 @@ for i in range(n):
     d_list.append(s)
 
 print(dict)
+print(d_list)
