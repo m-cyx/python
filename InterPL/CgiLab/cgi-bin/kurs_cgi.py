@@ -1,3 +1,8 @@
+#!C:/Users/Pixel/AppData/Local/Programs/Python/Python38-32/python.exe
+import cgi
+import html
+import io
+import sqlite3
 import io
 import nltk
 from nltk import sent_tokenize
@@ -43,7 +48,7 @@ f.close()
 # В этой части беру текст, отчищаю от стоп слов и привожу в начальную форму. На выходе должен быть список слов.
 
 # Открытие файла на чтение
-f = io.open('text2.txt', encoding='utf-8')
+f = io.open('text.txt', encoding='utf-8')
 text = f.read()
 
 # Получение списка слов и стоп слов
@@ -88,7 +93,7 @@ for el in dict_out_color:
 
 
 # с помощю cgi попробовать напечатать цветной текст в HTML
-# ПОПРОБОВАТЬ СОЗДАТЬ HTML ФАЙЛ ЧЕРЕЗ ЗАПИСЬ В ФАЙЛ или ПОТОТОМ МОЖНО .txt ПОМЕНЯТЬ НА .html
+
 
 
 

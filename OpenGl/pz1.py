@@ -4,7 +4,7 @@ window = tk.Tk() # Это инициализация окна
 hello = tk.Label(
     text = 'Проверка окна раp раз гав гав',
     fg = 'white',
-    bg = 'purple',
+    bg = '#af2b1e',
     width = 50,
     height = 25
 ) #это виджет
