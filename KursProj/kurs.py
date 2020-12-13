@@ -1,4 +1,5 @@
 import io
+import os
 import nltk
 from nltk import sent_tokenize
 from nltk import word_tokenize
@@ -43,7 +44,7 @@ f.close()
 # В этой части беру текст, отчищаю от стоп слов и привожу в начальную форму. На выходе должен быть список слов.
 
 # Открытие файла на чтение
-f = io.open('text2.txt', encoding='utf-8')
+f = io.open('text4.txt', encoding='utf-8')
 text = f.read()
 
 # Получение списка слов и стоп слов
@@ -87,17 +88,32 @@ for el in dict_out_color:
     print(el + ' ' + str(dict_out_color[el]) + ' ' + colorbook[el])
 
 
-# с помощю cgi попробовать напечатать цветной текст в HTML
-# ПОПРОБОВАТЬ СОЗДАТЬ HTML ФАЙЛ ЧЕРЕЗ ЗАПИСЬ В ФАЙЛ или ПОТОТОМ МОЖНО .txt ПОМЕНЯТЬ НА .html
 
+# ПОДГОТОВИТЬ СПИСОК СТРОК ДЛЯ ВЫВОДА И В АРГУМЕНТЕ ФУНКЦИИ ОБРАЩАТЬСЯ К СТРОКЕ ИЗ СПИСКА ПО НОМЕРУ
+html_string = []
+for el in dict_out_color:
+    html_string.append('        <p align="center" style="color:{}; font-size:50px; text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5); font: 20pt Arial;"><strong> {} {} код: {} </strong></p>\n'.format(colorbook[el], el, dict_out_color[el], colorbook[el]))
 
+#print(html_string)
 
+#html_cnt = int(7)
+#for el in html_string:
+#    replace_line('page.html', html_cnt, el)
+#    html_cnt += 1
 
+#вместо того чтобы долбиться в ошибку аут оф рейндж я лучше буду прочто дописывать строки в файл а потом дописать все закрывающие теги 
+os.system(r'nul>page.html')
+f = io.open('page.html', 'a', encoding='utf-8')
+# Записываю открывающие теги
+f.write('<!DOCTYPE HTML>\n<html>\n  <head>\n        <title>Результаты анализа</title>\n    </head>\n    <body background="yellow-paper.jpg">\n')
 
+# Записываю результаты работы
+for el in html_string:
+    f.write(el)
 
-
-
-
+# Закрываю теги 
+f.write('    </body>\n</html>')
+f.close
 
 '''
 можно выводить результат в html с цветами
