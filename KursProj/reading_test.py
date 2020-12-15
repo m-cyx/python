@@ -24,6 +24,8 @@ replace_line('page.html', 8, '      <p> Проверка 3 </p>\n')
     </head>
     <body>
         <p align="center" style="color:#ff0099; font-size:30px; font: 20pt Arial;"> Проверка </p>
-        
+
     </body>    
 </html>
+
+
