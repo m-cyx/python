@@ -1,1 +1,1 @@
-ОПРАПОС 
+['ATTACK', 'ZORRO', 'AT', 'DAWN']
