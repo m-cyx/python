@@ -1,33 +1,39 @@
-import xml.etree.ElementTree as xml
- 
+import xml.etree.ElementTree as ET
 
+"""text1 = 'xiaomi'
+text2 = 'mi note 10 lite'
+
+# Element (название эл) используется для создания элементов XML
+phones_firms = ET.Element('phones') #корневой тег телефоны
+
+# SubElement ((родитель, название эл)), используемая для создания вложенных тегов 
+phone_firm = ET.SubElement(phones_firms, text1) 
+model = ET.SubElement(phone_firm, text2)
+
+# dump() используется для вывода элементов xml
+ET.dump(phones_firms)
+
+# Cохраняю в файл, используя метод write()
+tree = ET.ElementTree(phones_firms)
+tree.write("sample.xml")
+
+#-----------------------
 """
-Создаем XML файл.
-"""
-root = xml.Element("zAppointments")
-appt = xml.Element("appointment")
-root.append(appt)
-    
-# создаем дочерний суб-элемент. 
-begin = xml.SubElement(appt, "begin")
-begin.text = "1181251680"
+text1 = 'модель телефона1'
+text2 = 'название телефона1'
 
-uid = xml.SubElement(appt, "uid")
-uid.text = "040000008200E000"
+tree = ET.parse('sample.xml')
+root=tree.getroot()
 
-alarmTime = xml.SubElement(appt, "alarmTime")
-alarmTime.text = "1181572063"
+# SubElement ((родитель, название эл)), используемая для создания вложенных тегов 
+phone_firm = ET.SubElement(root, text1) 
+model = ET.SubElement(phone_firm, text2)
 
-state = xml.SubElement(appt, "state")
+# dump() используется для вывода элементов xml
+ET.dump(root)
 
-location = xml.SubElement(appt, "location")
+# Cохраняю в файл, используя метод write()
+tree = ET.ElementTree(root)
+tree.write("sample.xml")
 
-duration = xml.SubElement(appt, "duration")
-duration.text = "1800"
-
-subject = xml.SubElement(appt, "subject")
-
-tree = xml.ElementTree(root)
-with open("appt.xml", "w") as fh:
-    tree.write(fh)
- 
+#----------

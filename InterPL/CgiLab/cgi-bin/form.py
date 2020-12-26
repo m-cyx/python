@@ -3,13 +3,15 @@ import cgi
 import html
 import io
 import sqlite3
+import xml.etree.ElementTree as ET
+
 
 form = cgi.FieldStorage()
 text1 = form.getfirst("TEXT_1", "не задано")
 text2 = form.getfirst("TEXT_2", "не задано")
 #text1 = text1 + '       testing'  #форматирование
 
-#экранирование строчек
+# Экранирование строчек
 text1 = html.escape(text1)
 text2 = html.escape(text2)
 
@@ -47,6 +49,25 @@ print("<p>Второе поле: {}</p>".format(text2))
 
 print("""</body>
         </html>""")
+'''
+'''# Записываю в XML результаты 
+
+
+tree = ET.parse('sample.xml')
+root=tree.getroot()
+
+# SubElement ((родитель, название эл)), используемая для создания вложенных тегов 
+phone_firm = ET.SubElement(root, text1) 
+model = ET.SubElement(phone_firm, text2)
+
+# dump() используется для вывода элементов xml
+ET.dump(root)
+
+# Cохраняю в файл, используя метод write()
+tree = ET.ElementTree(root)
+tree.write("sample.xml")
+
+#-----------------------
 '''
 
 print("Content-type: text/html\n")

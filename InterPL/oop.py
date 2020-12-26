@@ -1,4 +1,3 @@
-from hashlib import sha256
 from datetime import datetime
 from time import sleep
 
@@ -6,7 +5,6 @@ from time import sleep
 class Triangle(object):
     def __init__(self, x1y1, x2y2, x3y3):
         sleep(0.1)
-        self.mark = sha256(str(datetime.now()).encode()).hexdigest()
         self.x1y1 = x1y1
         self.x2y2 = x2y2
         self.x3y3 = x3y3
@@ -35,13 +33,12 @@ class Triangle(object):
         print(f"x3y3 - {self.x3y3}")
 
     def __str__(self):
-        return f"Площадь треугольника {self.mark} = {self._area}"
+        return f"Площадь треугольника = {self._area}"
 
 
 class Quad(object):
     def __init__(self, x1y1, x2y2, x3y3, x4y4):
         sleep(0.1)
-        self.mark = sha256(str(datetime.now()).encode()).hexdigest()
         self.x1y1 = x1y1
         self.x2y2 = x2y2
         self.x3y3 = x3y3
@@ -87,7 +84,7 @@ class Quad(object):
         print(f"x4y4 - {self.x4y4}")
 
     def __str__(self):
-        return f"Площадь квадрата {self.mark} = {self._area}"
+        return f"Площадь квадрата = {self._area}"
 
 
 class Comparator(object):
