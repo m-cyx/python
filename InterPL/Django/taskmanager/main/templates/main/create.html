@@ -1,0 +1,20 @@
+{% extends 'main/base.html'%}
+
+{% block title %} 
+    {{ title }} 
+{% endblock %}
+
+
+{% block content %} 
+    <h1>Создать запись</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.title }}
+        {{ form.task }}
+        <input type="text" placeholder="Введите производителя" class="form-control"><br>
+        <textarea type="text" placeholder="Введите модель телефона" class="form-control"></textarea><br>
+        <button type="submit" class="btn btn-success">Занести в базу</button>
+    </form>   
+
+
+{% endblock %}
