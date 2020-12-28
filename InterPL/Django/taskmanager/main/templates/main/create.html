@@ -9,11 +9,11 @@
     <h1>Создать запись</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.title }}
-        {{ form.task }}
-        <input type="text" placeholder="Введите производителя" class="form-control"><br>
-        <textarea type="text" placeholder="Введите модель телефона" class="form-control"></textarea><br>
+        {{ form.title }}<br>
+        {{ form.task }}<br>
+        
         <button type="submit" class="btn btn-success">Занести в базу</button>
+        <span> {{ error }} </span>
     </form>   
 
 
