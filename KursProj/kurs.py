@@ -105,7 +105,14 @@ for el in dict_out_color:
 os.system(r'nul>page.html')
 f = io.open('page.html', 'a', encoding='utf-8')
 # Записываю открывающие теги
-f.write('<!DOCTYPE HTML>\n<html>\n  <head>\n        <title>Результаты анализа</title>\n    </head>\n    <body background="yellow-paper.jpg">\n')
+f.write('''
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Результаты анализа</title>
+    </head>
+    <body background="yellow-paper.jpg">
+''')
 
 # Записываю результаты работы
 for el in html_string:
