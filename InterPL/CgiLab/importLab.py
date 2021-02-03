@@ -20,7 +20,7 @@ tree.write("sample.xml")
 #-----------------------
 """
 text1 = 'модель телефона1'
-text2 = 'название телефона1'
+text2 = 'название телефон1'
 
 tree = ET.parse('sample.xml')
 root=tree.getroot()
