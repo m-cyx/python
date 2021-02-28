@@ -8,7 +8,7 @@ f = io.open('file_12.csv', 'r', encoding='utf-8')
 # table[строка][столбец]
 table = [row for row in csv.reader(f)]
 marks = []
-for i in range(1,len(table)-2):
+for i in range(1, len(table)-2):
     marks.append(table[i][9])
 
 marks = [float(el.replace(',', '.')) for el in marks]
