@@ -8,3 +8,4 @@ urlpatterns = [
     path('', include('main.urls'))
     
 ]
+#python manage.py runserver

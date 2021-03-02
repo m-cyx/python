@@ -30,4 +30,7 @@ def create(request):
         'error': error
     }
     return render(request, 'main/create.html', context)
+
+def delete(request):
+    return render(request, 'main/delete.html')
     #return render(request, 'main/create.html')
