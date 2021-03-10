@@ -1,0 +1,17 @@
+{% extends 'main/base.html'%}
+
+{% block title %} 
+    {{ title }} 
+{% endblock %}
+
+
+{% block content %} 
+    <h1>Удалить запись</h1>
+    <form action=" /admin/main/task/">
+        
+        <button href="/admin/main/task/" class="btn btn-danger">Удалить записи из базы</button>
+        <span> {{ error }} </span>
+    </form>   
+
+
+{% endblock %}
