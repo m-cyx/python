@@ -60,7 +60,7 @@ class ChangerWidget(tk.Toplevel):
         self.removeButton.pack(side='left')        
 
 
-class Controller:
+#class Controller:
     def __init__(self, root):
         self.model = Model()
         self.model.myMoney.addCallback(self.MoneyChanged)
@@ -85,3 +85,68 @@ if __name__ == '__main__':
     root.withdraw()
     app = Controller(root)
     root.mainloop()
+
+
+
+
+class UserController:
+ # Список пользователей приложения.
+ public List<UserModel> Users { get; }
+ # Текущий пользователь.
+ public UserModel CurrentUser { get; }
+ # Является ли пользователь вновь созданным.
+ public bool IsNewUser { get; } = false;
+ # Создать новый контроллер пользователя.
+ # <param name="user"> Пользователь. </param>
+ public UserController(string userName)
+
+
+ # Сохранить данные пользователя.
+ public void Save()
+ # Получить сохраненный список ползователей.
+ # <returns> Пользователь приложения. </returns>
+ private List<UserModel> GetUsersData()
+ # Изменить данные пользователя.
+ # <returns> Пользователь приложения с новым набором данных. </returns>
+ public void SetNewUserData(string genderName, DateTime birthDate, double weight =1, double height = 1)
+
+class DBController:
+ # Создать новый контроллер для работы с базой данных.
+ public DBController (
+ # Создать новый SQL-запрос по имющемуся списку параметров заданного типа.
+ # <param name="requestArgs "> Набор парамаетров запроса. </param>
+ # <param name="requestType "> Тип запроса </param>
+ # <returns> Готовый SQL-запрос в виде строки. </returns>
+ public string DBController (string[] requestArgs, string requestType
+ # Создать новые подключние к базе данных.
+ # <param name=" host "> Адрес хоста. </param>
+ # <param name=" port "> Порт подключения. </param>
+ # <param name=" database "> Имя базы данных. </param>
+ # <param name=" username "> Логин пользователя. </param>
+ # <param name=" password "> Пароль пользователя. </param>
+ # <returns> Создает подключение к базе данных. </returns>
+ public DBController (string host, int port, string database, string username, string password)
+
+
+class Controller:
+    def __init__(self, Name, SecondName, PhoneNumber, BirthDate, DriverLicenseNumber, DrivingExperience, Status, Age, Tariff, CardNumber, TariffEndDate, IsIndTrainings, TrainingsLeft, IndTrainingsLeft):
+        self.Name = Name
+        self.SecondName = SecondName
+        self.PhoneNumber = PhoneNumber
+        self.BirthDate = BirthDate
+        self.DriverLicenseNumber = DriverLicenseNumber
+        self.DrivingExperience = DrivingExperience
+        self.Status = Status
+        self.Age = Age
+        self.Tariff = Tariff
+        self.CardNumber = CardNumber
+        self.TariffEndDate = TariffEndDate
+        self.IsIndTrainings = IsIndTrainings
+        self.TrainingsLeft = TrainingsLeft
+        self.IndTrainingsLeft = IndTrainingsLeft
+    
+
+
+
+def validation (Name, SecondName, PhoneNumber, BirthDate, DriverLicenseNumber, DrivingExperience, Status, Age, Tariff, CardNumber, TariffEndDate, IsIndTrainings, TrainingsLeft, IndTrainingsLeft):
+    
