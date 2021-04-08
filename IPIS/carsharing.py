@@ -91,7 +91,7 @@ if __name__ == '__main__':
 
 class UserController:
  # Список пользователей приложения.
- public List<UserModel> Users { get; }
+ #public List<UserModel> Users { get; }
  # Текущий пользователь.
  public UserModel CurrentUser { get; }
  # Является ли пользователь вновь созданным.
