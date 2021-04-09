@@ -22,6 +22,12 @@ class Controller:
     def get_view_data(self):
         return View.return_data_list()
 
+
+    def tool(self):
+        data = Model.get_all_tuples()
+        self.get_view_data(data)
+
+
 if __name__ == '__main__':
     carsharing = Controller()
     carsharing.mainloop()
