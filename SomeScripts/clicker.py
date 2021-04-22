@@ -11,7 +11,7 @@ while True:
             pyautogui.click()
             # i+=1
             # print('test'+str(i))
-            sleep(0.8)
+            sleep(0.2)
 
     if keyboard.is_pressed( stop_key ):
         break
