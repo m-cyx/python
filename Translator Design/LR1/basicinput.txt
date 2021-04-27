@@ -1,0 +1,7 @@
+A = 8
+B = 12
+IF A > B THEN
+S = A
+ELSE
+S = B
+END IF

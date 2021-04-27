@@ -1,5 +1,5 @@
 INPUT I
-IF I >= 0 THEN PRINT "Positive number or null" : GOTO 4
+IF I > 0 THEN PRINT "Positive number or null" : GOTO 4
 PRINT "Negative number"
 INPUT A
 PRINT A
