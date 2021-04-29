@@ -191,25 +191,6 @@ def kvad(Xi, Yi, n):
         plt.legend()
         plt.show()
 
-def all(Xi, Yi, n):
-	global ygl
-	global ygs
-	global yge
-	global ygk
-	plt.title("Все функции")
-	plt.xlabel("x")
-	plt.ylabel("y")
-	plt.grid()
-	plt.plot(Xi, Yi, color='r', linestyle=' ', marker='o', label='y(x)')
-	plt.plot(Xi, ygl, label='Линейная функция')
-	plt.plot(Xi, ygs, label='Степенная функиця')
-	plt.plot(Xi, yge, label='Экспонинцеальная функция')
-	plt.plot(Xi, ygk, label='Квадратичная функция')
-	plt.legend()
-	plt.show()
-
-    #ygl = []
-
 
 def main():
     file = open('input.txt', 'r')
@@ -248,4 +229,36 @@ def main():
 if __name__ == '__main__':
     main()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def all(Xi, Yi, n):
+	global ygl
+	global ygs
+	global yge
+	global ygk
+	plt.title("Все функции")
+	plt.xlabel("x")
+	plt.ylabel("y")
+	plt.grid()
+	plt.plot(Xi, Yi, color='r', linestyle=' ', marker='o', label='y(x)')
+	plt.plot(Xi, ygl, label='Линейная функция')
+	plt.plot(Xi, ygs, label='Степенная функиця')
+	plt.plot(Xi, yge, label='Экспонинцеальная функция')
+	plt.plot(Xi, ygk, label='Квадратичная функция')
+	plt.legend()
+	plt.show()
+    #ygl = []
 
