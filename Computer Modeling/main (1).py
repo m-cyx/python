@@ -1,7 +1,6 @@
-# Программа не отобразит все графики, пока не пройдёшься по каждому пункту меню, т.к в глобальных переменных не будет записано значаний.
-
 import math
 import matplotlib.pyplot as plt
+
 
 
 def lin(Xi, Yi, n):
@@ -193,7 +192,7 @@ def kvad(Xi, Yi, n):
         plt.legend()
         plt.show()
 
-def all(Xi, Yi, n):
+def all_f(Xi, Yi, n):
 	global ygl
 	global ygs
 	global yge
@@ -209,6 +208,7 @@ def all(Xi, Yi, n):
 	plt.plot(Xi, ygk, label='Квадратичная функция')
 	plt.legend()
 	plt.show()
+
     #ygl = []
 
 def main():
@@ -222,7 +222,7 @@ def main():
     for i in range(len(Yi)):
     	Yi[i] = float(Yi[i])   
     n = len(Xi)
-    print("Аппроксимировать функцию в виде:\n1. Линейная функция.\n2. Степенная функция.\n3. Экспонинцеальная функция\n4. Квадратичная функция\n5. Все графики\n 6. Выход")
+    print("Аппроксимировать функцию в виде:\n1. Линейная функция.\n2. Степенная функция.\n3. Экспонинцеальная функция\n4. Квадратичная функция\n5. Выход\n")
     menu = input()
     if menu == "1":
         lin(Xi, Yi, n)
@@ -237,7 +237,7 @@ def main():
         kvad(Xi, Yi, n)
         main()
     elif menu == "5":
-        all(Xi, Yi, n)
+        all_f(Xi, Yi, n)
         main()
     elif menu == "6":
         pass
@@ -245,9 +245,9 @@ def main():
         main()
 
 
+
 if __name__ == '__main__':
     main()
-
 
 
 

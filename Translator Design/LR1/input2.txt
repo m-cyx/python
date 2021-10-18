@@ -1,0 +1,13 @@
+PRINT "Добро пожаловать!"
+FOR I=1 TO 80
+PRINT "=";
+NEXT I
+
+INPUT "Имя:  ",N$
+INPUT "Фамилия: ",S$
+INPUT "Отчество: ",T$
+PRINT "Ваше имя : ";S$;" ";N$;". ";T$;"."
+INPUT "Повторить программу? (Y/N) ",U$
+IF U$="Y" THEN GOTO 1
+END
+
