@@ -1,7 +1,10 @@
 from os import environ
- 
+#модуль контрол в документации посмотреть Его использовал Кирилл 
 """
-
+В бд хранятся данные, которые мы вводим в поля для каждой лингвистической переменной.
+По ним считается мат ожидание и средне квадратичное отклонение (два коэффицента сигма и а).
+На основе этих двух коэфов строятся 3 графика для термов. Так три раза.
+Во вьюшке ничего менять не надо, всё ок. Разобраться с библиотекой, бдшкой и модулем контрол. 
 
 The Tipping Problem
 -------------------
@@ -52,13 +55,13 @@ from skfuzzy import control as ctrl
 # functions
 quality = ctrl.Antecedent(np.arange(0, 11, 1), 'quality')
 service = ctrl.Antecedent(np.arange(0, 11, 1), 'service')
-third = ctrl.Antecedent(np.arange(0,11,1), 'third')
+#third = ctrl.Antecedent(np.arange(0,11,1), 'third')
 tip = ctrl.Consequent(np.arange(0, 26, 1), 'tip')
 
 # Auto-membership function population is possible with .automf(3, 5, or 7)
 quality.automf(3)
 service.automf(3)
-third.automf(3)
+#third.automf(3)
 
 # Custom membership functions can be built interactively with a familiar,
 # Pythonic API
@@ -71,15 +74,15 @@ To help understand what the membership looks like, use the ``view`` methods.
 """
 
 # You can see how these look with .view()
-quality['average'].view()
+#quality['average'].view()
 """
 .. image:: PLOT2RST.current_figure
 """
-service.view()
+#service.view()
 """
 .. image:: PLOT2RST.current_figure
 """
-tip.view()
+#tip.view()
 """
 .. image:: PLOT2RST.current_figure
 
@@ -138,7 +141,7 @@ and the service 9.8 of 10.
 # Note: if you like passing many inputs all at once, use .inputs(dict_of_data)
 tipping.input['quality'] = 10
 tipping.input['service'] = 10
-tipping.input['third'] = 10
+##tipping.input['third'] = 10
 
 # Crunch the numbers
 tipping.compute()
