@@ -34,7 +34,12 @@ while input_cam.isOpened():         # Пока объект захвата от�
     этого пикселя. 
     Значение исходного пикселя получает наибольший вес, а соседние получают меньшие веса по мере увеличения их расстояния до исходного пикселя. Это приводит к размытию.
     """
+    # For every pixel, the same threshold value is applied. 
+    # If the pixel value is smaller than the threshold, it is set to 0, 
+    # otherwise it is set to a maximum value.
     ret, thresh = cv2.threshold(blur, 20, 255, cv2.THRESH_BINARY)
+
+    # Выделяем контуры. Аргументы - (image, mode, method)
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     for contour in contours:
