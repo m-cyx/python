@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 
-
+# это константа из учебника , если таблица 6х6, то берём 6 эл.
 sluch_ind = [0., 0., 0.58, 0.9, 1.12,
              1.24, 1.32, 1.41, 1.45, 1.49,
              1.51, 1.48, 1.56, 1.57, 1.59]
@@ -39,7 +39,7 @@ class Table(object):
         return self._lyambda
 
     def set_lyambda(self):
-        self._lyambda = self.find_lyambda()
+        self._lyambda = self.find_lyambda() 
 
     @property
     def file(self):
@@ -123,12 +123,12 @@ class Table(object):
             res.append(val)
         return res
 
-    def find_lyambda(self):
+    def find_lyambda(self): # перевели матрицу в массив нп
         np_data = np.array(self.get_matr_from_dict())
         #print(np_data.shape)
         #print(np_data)
-        w, v = np.linalg.eig(np_data)
-        return round(max(w), 3)
+        w, v = np.linalg.eig(np_data) # считаем собств значения матрицы
+        return round(max(w), 3) # и выводим максимум 
 
     def ind_sogl(self):
         return (self.lyambda - len(self.table))/(len(self.table) - 1)
