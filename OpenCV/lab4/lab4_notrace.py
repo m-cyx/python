@@ -15,8 +15,8 @@ while True:
     flag, frame = cap.read() # Читаем фрейм 
     frame = cv2.flip(frame, 1) # отражение кадра вдоль оси Y
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV )
-    blur = cv2.GaussianBlur(hsv, (7, 7), 0) # Нифигово так размываем
-    thresh = cv2.inRange(blur, lower_red, upper_red)
+    #blur = cv2.GaussianBlur(hsv, (7, 7), 0) # Нифигово так размываем
+    thresh = cv2.inRange(hsv, lower_red, upper_red)
 
     moments = cv2.moments(thresh, 1) # Берём моменты. Вес точки = 1, если цвет не 0
     dM10 = moments['m10'] # Сумма Х координат точек 
